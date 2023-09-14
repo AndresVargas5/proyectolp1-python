@@ -5,7 +5,7 @@ import csv
 #pip install pandastable, python3 -m pip install pandastable
 from pandastable import Table, TableModel
 
-#listas globales
+#listas globales ❤🤣💕
 nombre,apellido,edad,correo,telefono=[],[],[],[],[]
 
 #df = pd.DataFrame(columns=['Nombre', 'Apellido', 'Edad', 'Correo', 'Telefono'])para hacerlo con dataframe, pendiente modificar funciones
