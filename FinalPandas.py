@@ -10,7 +10,7 @@ nombre, apellido, edad, correo, telefono = [], [], [], [], []
 # Variables globales
 tabla = None  # Declarar la variable global tabla
 
-# Define las credenciales de inicio de sesión codificadas
+# Define las credenciales de inicio de sesión codificadas, estas se pueden cambiar en cualquier momento solo desde el codigo.
 usuario_valido = "admin"
 contrasena_valida = "password123"
 
@@ -35,40 +35,44 @@ def programa_principal():
     ventana.resizable(1, 1)
     ventana.rowconfigure(0, weight=1)
     ventana.columnconfigure(0, weight=1)
+    
+    #Configuramos todo el estilo de los botones del modulo tkk, en la funcion principal
+    estilo = ttk.Style()
+    estilo.configure('TButton', padding=6, relief="flat", font=('Arial', 12))
 
-    frame1 = Frame(ventana, bg='gray15')
+    frame1 = Frame(ventana, bg='lightgray', padx=20, pady=20)
     frame1.grid(row=0, column=0, sticky='nsew')
     frame1.rowconfigure(0, weight=1)
     frame1.columnconfigure(0, weight=1)
 
-    frame2 = Frame(ventana, bg='gray16')
+    frame2 = Frame(ventana, bg='lightgray',padx=20, pady=20)
     frame2.grid(row=0, column=1, sticky='nsew')
     frame2.rowconfigure(0, weight=1)
     frame2.columnconfigure(0, weight=1)
 
-    lblNombre = Label(frame1, text='Nombre', width=10)
+    lblNombre = Label(frame1, text='Nombre', font=('Arial', 12))
     lblNombre.grid(row=0, column=0, padx=10, pady=20)
-    txtNombre = Entry(frame1, width=20, font=('Arial', 12))
+    txtNombre = Entry(frame1, font=('Arial', 12))
     txtNombre.grid(row=0, column=1)
 
-    lblApellido = Label(frame1, text='Apellido', width=10)
-    lblApellido.grid(row=1, column=0, padx=10, pady=20)
-    txtApellido = Entry(frame1, width=20, font=('Arial', 12))
+    lblApellido = Label(frame1, text='Apellido', font=('Arial', 12))
+    lblApellido.grid(row=1, column=0, padx=10, pady=20,sticky='w')
+    txtApellido = Entry(frame1,  font=('Arial', 12))
     txtApellido.grid(row=1, column=1)
 
-    lblEdad = Label(frame1, text='Edad', width=10)
-    lblEdad.grid(row=2, column=0, padx=10, pady=20)
-    txtEdad = Entry(frame1, width=20, font=('Arial', 12))
+    lblEdad = Label(frame1, text='Edad', font=('Arial', 12))
+    lblEdad.grid(row=2, column=0, padx=10, pady=20,sticky='w')
+    txtEdad = Entry(frame1, font=('Arial', 12))
     txtEdad.grid(row=2, column=1)
 
-    lblCorreo = Label(frame1, text='Correo', width=10)
-    lblCorreo.grid(row=3, column=0, padx=10, pady=20)
-    txtCorreo = Entry(frame1, width=20, font=('Arial', 12))
+    lblCorreo = Label(frame1, text='Correo', font=('Arial', 12))
+    lblCorreo.grid(row=3, column=0, padx=10, pady=20,sticky='w')
+    txtCorreo = Entry(frame1, font=('Arial', 12))
     txtCorreo.grid(row=3, column=1)
 
-    lblTelefono = Label(frame1, text='Telefono', width=10)
-    lblTelefono.grid(row=4, column=0, padx=10, pady=20)
-    txtTelefono = Entry(frame1, width=20, font=('Arial', 12))
+    lblTelefono = Label(frame1, text='Telefono', font=('Arial', 12))
+    lblTelefono.grid(row=4, column=0, padx=10, pady=20,sticky='w')
+    txtTelefono = Entry(frame1, font=('Arial', 12))
     txtTelefono.grid(row=4, column=1)
 
     btnAgregar = Button(frame1, width=20, font=('Arial', 12, 'bold'), text='Agregar',
@@ -103,9 +107,13 @@ def programa_principal():
                          command=eliminar_seleccionado)
     btnEliminar.grid(row=3, column=0, padx=10, pady=10)
 
-    # Creación de la barra de menú
-    barraMenu = Menu(ventana)
-    ventana.config(menu=barraMenu, width=400, height=400)
+    # Creación de la barra de menú/falta finalizarla
+    menu_bar = Menu(ventana)
+    ventana.config(menu=menu_bar)
+
+    archivo_menu = Menu(menu_bar)
+    menu_bar.add_cascade(label='Archivo', menu=archivo_menu)
+    archivo_menu.add_command(label='Salir', command=ventana.quit)
 
     ventana.mainloop()
 
@@ -186,7 +194,7 @@ def eliminar_seleccionado():
 # Crear la ventana de inicio de sesión
 ventana_inicio = Tk()
 ventana_inicio.title("Inicio de Sesión")
-ventana_inicio.geometry("300x150")
+ventana_inicio.geometry("300x200")
 
 etiqueta_inicio = Label(ventana_inicio, text="Por favor, inicia sesión")
 etiqueta_inicio.pack(pady=10)
