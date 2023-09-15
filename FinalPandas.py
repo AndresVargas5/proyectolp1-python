@@ -3,6 +3,8 @@ from tkinter import ttk
 import pandas as pd
 import csv
 from pandastable import Table, TableModel
+from tkinter import PhotoImage
+from PIL import Image, ImageTk
 
 # Listas globales
 nombre, apellido, edad, correo, telefono = [], [], [], [], []
@@ -107,7 +109,7 @@ def programa_principal():
     barraMenu = Menu(ventana)
     ventana.config(menu=barraMenu, width=400, height=400)
 
-    ventana.mainloop()
+    #ventana.mainloop()
 
 def agregar_datos():
     global nombre, apellido, edad, correo, telefono
