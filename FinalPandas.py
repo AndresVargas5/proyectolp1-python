@@ -38,12 +38,12 @@ def programa_principal():
     ventana.rowconfigure(0, weight=1)
     ventana.columnconfigure(0, weight=1)
 
-    frame1 = Frame(ventana, bg='gray15')
+    frame1 = Frame(ventana, bg='#CDE0C4')
     frame1.grid(row=0, column=0, sticky='nsew')
     frame1.rowconfigure(0, weight=1)
     frame1.columnconfigure(0, weight=1)
 
-    frame2 = Frame(ventana, bg='gray16')
+    frame2 = Frame(ventana, bg='#CDE0C4')
     frame2.grid(row=0, column=1, sticky='nsew')
     frame2.rowconfigure(0, weight=1)
     frame2.columnconfigure(0, weight=1)
@@ -74,7 +74,7 @@ def programa_principal():
     txtTelefono.grid(row=4, column=1)
 
     btnAgregar = Button(frame1, width=20, font=('Arial', 12, 'bold'), text='Agregar',
-                        bg='orange', bd=5, command=agregar_datos)
+                        bg='#FFD860', bd=5, command=agregar_datos)
     btnAgregar.grid(row=5, columnspan=2, padx=10, pady=20)
 
     # Elementos del Frame2
@@ -97,11 +97,11 @@ def programa_principal():
     tabla.heading('Correo', text='Correo', anchor='center')
     tabla.heading('Telefono', text='Telefono', anchor='center')
 
-    btnGuardar = Button(frame2, width=20, font=('Arial', 12, 'bold'), text='Mostrar', bg='green2', bd=5,
+    btnGuardar = Button(frame2, width=20, font=('Arial', 12, 'bold'), text='Mostrar', bg='#C7FF89', bd=5,
                         command=mostrar_datos)
     btnGuardar.grid(row=2, column=0, padx=10, pady=10)
 
-    btnEliminar = Button(frame2, width=20, font=('Arial', 12, 'bold'), text='Eliminar', bg='red', bd=5,
+    btnEliminar = Button(frame2, width=20, font=('Arial', 12, 'bold'), text='Eliminar', bg='#F96666', bd=5,
                          command=eliminar_seleccionado)
     btnEliminar.grid(row=3, column=0, padx=10, pady=10)
 
