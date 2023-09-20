@@ -36,7 +36,7 @@ def programa_principal():
     ventana.columnconfigure(0, weight=1)
 
     frame = Frame(ventana, bg='lightgray', padx=20, pady=20)
-    frame.grid(row=0, column=0, sticky='nsew')
+    frame.grid(row=0, column=0, sticky='nsew')#sticky=nsew se usa para estirar el frame y que ocupe todo el espacio en todas las direcciones
     frame.columnconfigure(0, weight=1)
     frame.columnconfigure(1, weight=1)
 
@@ -104,7 +104,7 @@ def programa_principal():
 
 def agregar_datos(nombre_entry, apellido_entry, edad_entry, correo_entry, telefono_entry):
     global nombre, apellido, edad, correo, telefono
-    try:
+    try:#Try esta aninado con el except, para que se comprenda que en ese bloque de codigo se puede generar una excepcion(error sin bloquear el programa)
         nombre.append(nombre_entry.get())
         apellido.append(apellido_entry.get())
         edad.append(edad_entry.get())
@@ -116,8 +116,8 @@ def agregar_datos(nombre_entry, apellido_entry, edad_entry, correo_entry, telefo
             writer.writerow([nombre_entry.get(), apellido_entry.get(), edad_entry.get(), correo_entry.get(), telefono_entry.get()])
         
         limpiar(nombre_entry, apellido_entry, edad_entry, correo_entry, telefono_entry)
-    except Exception as e:
-        print("Error al agregar datos:", str(e))
+    except Exception as e: #Exception funcion personalizada para capturar errores
+        print("Error al agregar datos:", str(e))#str (e), para convertir la excepcion en un valor string
 
 def limpiar(nombre_entry, apellido_entry, edad_entry, correo_entry, telefono_entry):
     nombre_entry.delete(0, END)
@@ -131,7 +131,7 @@ def mostrar_datos():
     try:
         nombre, apellido, edad, correo, telefono = [], [], [], [], []
 
-        tabla.delete(*tabla.get_children())
+        tabla.delete(*tabla.get_children())#Elimina todos los datos de la tabla, el * desempaqueta elementos
 
         with open('datos.csv', mode='r') as file:
             reader = csv.reader(file)
